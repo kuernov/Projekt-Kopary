@@ -1,27 +1,25 @@
-package com.koparyProjekt.koparyProjekt.data;
+package com.koparyProjekt.koparyProjekt.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Entity
+
 @Getter
 @NoArgsConstructor
-public class Kopara {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+public class KoparaDto {
     private long id;
-
+    @NotBlank
     private String brand;
-
+    @NotBlank
     private String color;
-
+    @NotEmpty
     private int weight;
 
-    public Kopara(String brand, String color, int weight) {
+    public KoparaDto(String brand, String color, int weight) {
         this.brand = brand;
         this.color = color;
         this.weight = weight;
     }
-
 
 }

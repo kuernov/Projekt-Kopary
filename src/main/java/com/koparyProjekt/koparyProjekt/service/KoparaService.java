@@ -27,6 +27,5 @@ public class KoparaService {
 
     public void deleteById(long id){
         koparaRepository.deleteById(id);
-
     }
 }
