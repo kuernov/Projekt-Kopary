@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/kopary1")
+@RequestMapping("/api/kopary")
 public class KoparaController {
     @Autowired
     private KoparaService koparaService;
