@@ -1,17 +1,21 @@
 package com.koparyProjekt.koparyProjekt.data;
 
 import jakarta.persistence.*;
-
-@Entity
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+@Entity(name="kopary1")
+@Getter
+@NoArgsConstructor
 public class Kopara {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "kopary1_seq")
+    @SequenceGenerator(name = "kopary1_seq", sequenceName = "kopary1_seq", allocationSize = 1)
     private long id;
-    @Column
+
     private String brand;
-    @Column
+
     private String color;
-    @Column
+
     private int weight;
 
     public Kopara(String brand, String color, int weight) {
@@ -20,19 +24,5 @@ public class Kopara {
         this.weight = weight;
     }
 
-    public Kopara(){
 
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
 }

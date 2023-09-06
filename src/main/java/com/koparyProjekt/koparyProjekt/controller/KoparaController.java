@@ -2,6 +2,7 @@ package com.koparyProjekt.koparyProjekt.controller;
 
 import com.koparyProjekt.koparyProjekt.data.Kopara;
 import com.koparyProjekt.koparyProjekt.service.KoparaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,19 +19,19 @@ public class KoparaController {
         return koparaService.findAll();
     }
     @GetMapping("/{id}")
-    public Kopara findById(@PathVariable long id) {
+    public Kopara findById(@PathVariable @Valid long id) {
         return koparaService.findById(id);
     }
     @PostMapping
-    public Kopara create(@RequestBody Kopara kopara) {
+    public Kopara create(@RequestBody @Valid Kopara kopara) {
         return koparaService.save(kopara);
     }
     @PutMapping("/{id}")
-    public Kopara update(@RequestBody Kopara kopara) {
+    public Kopara update(@RequestBody @Valid Kopara kopara) {
         return koparaService.save(kopara);
     }
-    @DeleteMapping
-    public void deleteById(@PathVariable long id){
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable @Valid long id){
         koparaService.deleteById(id);
 
     }
