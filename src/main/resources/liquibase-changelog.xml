@@ -8,7 +8,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
 http://www.liquibase.org/xml/ns/pro
 http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd" >
     <includeAll path="database"/>
-    <include file="/kopary1_seq.sql"/>
-
-
+    <changeSet id="create_sequence" author="your_name">
+        <createSequence sequenceName="kopary1_seq" startValue="1" />
+    </changeSet>
 </databaseChangeLog>
