@@ -1,22 +1,25 @@
 package com.koparyProjekt.koparyProjekt.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class KoparaDto {
     private long id;
-    @NotBlank
+    @NotEmpty(message = "brand shouldn't be empty")
     private String brand;
-    @NotBlank
+    @NotEmpty(message = "color shouldn't be empty")
     private String color;
-    @NotEmpty
+    @Min(value = 1,message = "weight should be greater than 0")
     private int weight;
 
     public KoparaDto(String brand, String color, int weight) {
+        super();
         this.brand = brand;
         this.color = color;
         this.weight = weight;
